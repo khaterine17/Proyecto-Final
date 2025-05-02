@@ -7,7 +7,7 @@ function App() {
     <div>
       <nav>
         <Link to="/SobreNosotros">
-          <button>Sobre Nosotros</button>
+          <h4>Sobre Nosotros</h4>
         </Link>
       </nav>
 
