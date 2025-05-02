@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import SobreNosotros from './SobreNosotros.jsx';
 import Contacto from './contacto.jsx';
+import Login from './Login.jsx';
 
 function App() {
     return (
@@ -24,6 +25,15 @@ function App() {
 
             <Routes>
                 <Route path="/Contacto" element={<Contacto />} />
+            </Routes>
+            <nav>
+                <Link to="/Login">
+                    <h4>Login</h4>
+                </Link>
+            </nav>
+
+            <Routes>
+                <Route path="/Login" element={<Login />} />
             </Routes>
         </div>
     );
