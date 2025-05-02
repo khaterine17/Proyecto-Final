@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import SobreNosotros from './SobreNosotros.jsx';
-import Contacto from './contacto.jsx';
+import Contacto from './Contacto.jsx';
+import Venta from './Venta.jsx';
 
 function App() {
     return (
@@ -24,6 +25,16 @@ function App() {
 
             <Routes>
                 <Route path="/Contacto" element={<Contacto />} />
+            </Routes>
+
+            <nav>
+                <Link to="/Venta">
+                    <h4>Venta</h4>
+                </Link>
+            </nav>
+
+            <Routes>
+                <Route path="/Venta" element={<Venta />} />
             </Routes>
         </div>
     );
