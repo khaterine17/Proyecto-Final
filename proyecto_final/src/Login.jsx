@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     // Estados para login
     const [loginData, setLoginData] = useState({
         username: '',
@@ -21,6 +24,14 @@ const Login = () => {
     const [registerSuccess, setRegisterSuccess] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
 
+    // Redirigir si ya está autenticado
+    useEffect(() => {
+        const adminToken = localStorage.getItem('adminToken');
+        if (adminToken) {
+            navigate('/admin/dashboard');
+        }
+    }, [navigate]);
+
     // Manejadores para login
     const handleLoginChange = (e) => {
         const { name, value } = e.target;
@@ -33,9 +44,12 @@ const Login = () => {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
 
-        // OBSERVAR MAS ADELANTE KVM 2025-05-02
+        // Validación de credenciales de admin
         if (loginData.username === 'admin' && loginData.password === '1234') {
-            alert('Inicio de sesión exitoso');
+            // Guardar token de autenticación
+            localStorage.setItem('adminToken', 'admin-authenticated');
+            // Redirigir al dashboard
+            navigate('/admin/dashboard');
         } else {
             setLoginError('Usuario o contraseña incorrectos');
         }
@@ -50,7 +64,6 @@ const Login = () => {
         });
     };
 
-    // AQUI CREO QUE VA LO DE ACEPTACION CON EMAIL KVM 2025-05-02
     const validateRegister = () => {
         const newErrors = {};
         if (!registerData.nombre.trim()) newErrors.nombre = 'Nombre es requerido';
@@ -89,6 +102,7 @@ const Login = () => {
                     confirmPassword: ''
                 });
                 setRegisterSuccess(false);
+                setShowRegister(false); // Ocultar formulario de registro después del éxito
             }, 3000);
         }
     };
@@ -218,7 +232,7 @@ const Login = () => {
 
                     {registerSuccess && (
                         <div style={styles.successMessage}>
-                            ¡Registro exitoso! Redirigiendo...
+                            ¡Registro exitoso! Por favor inicia sesión.
                         </div>
                     )}
                 </form>
@@ -227,7 +241,7 @@ const Login = () => {
     );
 };
 
-// DISENO DE LA PAGINA DE LOGIN KVM 2025-05-02
+// Estilos (se mantienen igual)
 const styles = {
     container: {
         display: 'flex',

@@ -1,6 +1,5 @@
-// App.jsx
 import React, { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
 import SobreNosotros from './SobreNosotros.jsx';
 import Contacto from './Contacto.jsx';
 import Venta from './Venta.jsx';
@@ -9,8 +8,15 @@ import Login from './Login.jsx';
 import AdminDashboard from './AdminDashboard.jsx';
 import './App.css';
 
+// Componente para proteger rutas
+const ProtectedRoute = ({ children }) => {
+    const isAuthenticated = localStorage.getItem('adminToken');
+    return isAuthenticated ? children : <Navigate to="/Login" replace />;
+};
+
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
@@ -18,9 +24,15 @@ function App() {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        // Aquí podrías redirigir al usuario o buscar entre los datos existentes
         alert(`Buscando: ${searchQuery}`);
     };
+
+    // Función para cerrar sesión
+    const handleLogout = () => {
+        localStorage.removeItem('adminToken');
+        navigate('/Login');
+    };
+
     return (
         <div>
             <div className="navbar">
@@ -31,7 +43,23 @@ function App() {
                     <Link to="/SobreNosotros">Sobre Nosotros</Link>
                     <Link to="/Contacto">Contacto</Link>
                     <Link to="/Venta">Venta</Link>
-                    <Link to="/Login">Login</Link>
+                    {localStorage.getItem('adminToken') ? (
+                        <>
+                            <Link to="/Admins">Dashboard</Link>
+                            <button onClick={handleLogout} style={{
+                                background: 'none',
+                                border: 'none',
+                                color: 'inherit',
+                                cursor: 'pointer',
+                                font: 'inherit',
+                                padding: '0'
+                            }}>
+                                Cerrar Sesión
+                            </button>
+                        </>
+                    ) : (
+                        <Link to="/Login">Login</Link>
+                    )}
 
                     <div className="search-bar">
                         <form onSubmit={handleSearchSubmit}>
@@ -45,8 +73,7 @@ function App() {
                                 backgroundColor: 'transparent',
                                 border: 'none',
                                 cursor: 'pointer'
-                            }}>🔍
-                            </button>
+                            }}>🔍</button>
                         </form>
                     </div>
                 </div>
@@ -58,7 +85,16 @@ function App() {
                 <Route path="/Venta" element={<Venta />} />
                 <Route path="/detalle/:id" element={<DetalleProducto />} />
                 <Route path="/Login" element={<Login />} />
-                <Route path="/Admins" element={<AdminDashboard />} />
+                <Route
+                    path="/Admins"
+                    element={
+                        <ProtectedRoute>
+                            <AdminDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                {/* Redirección por defecto */}
+                <Route path="/" element={<Navigate to="/SobreNosotros" replace />} />
             </Routes>
         </div>
     );
