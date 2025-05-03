@@ -43,18 +43,24 @@ body {
   color: #cce7ff;
 }
 
-/* Sobre Nosotros */
-
-.sobre-nosotros-container {
+/* Sobre Nosotros */.sobre-nosotros-container {
   padding: 40px;
   max-width: 1200px;
   margin: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Fondo con imagen */
+  background-image: url('/sobreNosotros.jpg'); /* Cambia la ruta a la imagen deseada */
+  background-size: cover;        /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center;   /* Centra la imagen */
+  background-repeat: no-repeat;  /* No se repite la imagen */
+  border-radius: 10px;
 }
+
 
 /* Nueva tarjeta para la introducción */
 .intro-card {
-  background-color: #001A5F; /* Azul claro para combinar */
+  background-color: rgba(0, 26, 95, 0.9); 
   color: #fbf8f8;
   border-radius: 10px;
   padding: 30px;
@@ -82,7 +88,8 @@ body {
 }
 
 .card {
-  background-color: #0077cc;
+  background-color: rgba(0, 119, 204, 0.9);
+
   color: white;
   border-radius: 10px;
   padding: 20px;
