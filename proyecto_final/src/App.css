@@ -42,3 +42,71 @@ body {
 .navbar .nav-links a:hover {
   color: #cce7ff;
 }
+
+/* Sobre Nosotros */
+
+.sobre-nosotros-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Nueva tarjeta para la introducción */
+.intro-card {
+  background-color: #001A5F; /* Azul claro para combinar */
+  color: #fbf8f8;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-card h1 {
+  color: #f8f8fa;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.intro-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.card {
+  background-color: #0077cc;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  text-align: center; /* Centra texto */
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h2 {
+  margin-top: 0;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+

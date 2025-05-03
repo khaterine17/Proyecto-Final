@@ -5,6 +5,7 @@ import SobreNosotros from './SobreNosotros.jsx';
 import Contacto from './Contacto.jsx';
 import Venta from './Venta.jsx';
 import Login from './Login.jsx';    
+import AdminDashboard from './AdminDashboard.jsx';
 import './App.css'; 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                     <Link to="/Contacto">Contacto</Link>
                     <Link to="/Venta">Venta</Link>
                     <Link to="/Login">Login</Link>
+                    
                     <div className="search-bar">
                     <form onSubmit={handleSearchSubmit}>
                         <input
@@ -53,6 +55,7 @@ function App() {
                 <Route path="/Contacto" element={<Contacto />} />
                 <Route path="/Venta" element={<Venta />} />
                 <Route path="/Login" element={<Login />} />
+                <Route path="/Admins" element={<AdminDashboard />} />
             </Routes>
         </div>
     );
