@@ -7,6 +7,8 @@ import DetalleProducto from './DetalleProducto.jsx';
 import Login from './Login.jsx';
 import AdminDashboard from './AdminDashboard.jsx';
 import './App.css';
+import Footer from './footer.jsx';
+import { FaUserAlt } from "react-icons/fa";
 
 // Componente para proteger rutas
 const ProtectedRoute = ({ children }) => {
@@ -40,9 +42,9 @@ function App() {
                     🧊 Refrielectric RMV S.R.L
                 </div>
                 <div className="nav-links">
+                   <Link to="/Venta">Venta</Link>
+                   <Link to="/Contacto">Contacto</Link>
                     <Link to="/SobreNosotros">Sobre Nosotros</Link>
-                    <Link to="/Contacto">Contacto</Link>
-                    <Link to="/Venta">Venta</Link>
                     {localStorage.getItem('adminToken') ? (
                         <>
                             <Link to="/Admins">Dashboard</Link>
@@ -58,7 +60,7 @@ function App() {
                             </button>
                         </>
                     ) : (
-                        <Link to="/Login">Login</Link>
+                        <Link to="/Login"> <FaUserAlt /> </Link>
                     )}
 
                     <div className="search-bar">
@@ -93,10 +95,11 @@ function App() {
                         </ProtectedRoute>
                     }
                 />
-                {/* Redirección por defecto */}
                 <Route path="/" element={<Navigate to="/SobreNosotros" replace />} />
             </Routes>
+            <Footer />
         </div>
+        
     );
 }
 
