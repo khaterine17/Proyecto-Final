@@ -4,7 +4,7 @@ import ItemList from '../src/components/ItemList';
 import ItemForm from '../src/components/ItemForm';
 import { getItems, deleteItem, createItem, updateItem } from '../src/Services/api';
 import './Dashboard.css';
-import LateralPanel from './components/LateralPanel.jsx';
+
 const AdminDashboard = () => {
   const [items, setItems] = useState([]);
   const [editingItem, setEditingItem] = useState(null);
