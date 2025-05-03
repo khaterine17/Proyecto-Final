@@ -4,6 +4,23 @@ import { useParams, useNavigate } from "react-router-dom";
 const productos = [
   {
     id: 1,
+    nombre: "Aire Acondicionado Inverter",
+    modelo: "AR12TYHYCWK",
+    marca: "Samsung",
+    imagen: "/img/contacto2.jpg",
+    disponible: true,
+    categoria: "AIRE ACONDICIONADO",
+    caracteristicas: [
+      "Tecnología Inverter para ahorro energético.",
+      "Control remoto y Wi-Fi integrado.",
+      "Modo de enfriamiento rápido.",
+      "Filtro de aire lavable.",
+      "Diseño elegante y moderno.",
+    ],
+
+  },
+  {
+    id: 2,
     nombre: "Purificador de Aire",
     modelo: "AX40T3030WM/AZ",
     marca: "Samsung",
@@ -17,22 +34,6 @@ const productos = [
       "Extrae partículas de polvo grandes.",
       "Filtro de carbón activado elimina gases nocivos.",
       "Filtración HEPA ultrafino limita bacterias.",
-    ],
-  },
-  {
-    id: 2,
-    nombre: "Aire Acondicionado Inverter",
-    modelo: "AR12TYHYCWK",
-    marca: "Samsung",
-    imagen: "/img/contacto2.jpg",
-    disponible: true,
-    categoria: "AIRE ACONDICIONADO",
-    caracteristicas: [
-      "Tecnología Inverter para ahorro energético.",
-      "Control remoto y Wi-Fi integrado.",
-      "Modo de enfriamiento rápido.",
-      "Filtro de aire lavable.",
-      "Diseño elegante y moderno.",
     ],
   },
   {
