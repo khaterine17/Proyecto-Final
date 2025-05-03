@@ -4,6 +4,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import SobreNosotros from './SobreNosotros.jsx';
 import Contacto from './Contacto.jsx';
 import Venta from './Venta.jsx';
+import DetalleProducto from './DetalleProducto.jsx';
 import Login from './Login.jsx';
 import AdminDashboard from './AdminDashboard.jsx';
 import './App.css';
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/SobreNosotros" element={<SobreNosotros />} />
                 <Route path="/Contacto" element={<Contacto />} />
                 <Route path="/Venta" element={<Venta />} />
+                <Route path="/detalle/:id" element={<DetalleProducto />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Admins" element={<AdminDashboard />} />
             </Routes>
