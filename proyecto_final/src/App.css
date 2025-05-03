@@ -8,6 +8,10 @@ body {
 
 /* Estilos generales para el navbar */
 .navbar {
+  position: fixed;       /* Hace que el navbar se quede fijo */
+  top: 0;                /* Lo posiciona en la parte superior */
+  width: 100%;           /* Ocupa todo el ancho */
+  z-index: 1000;     
   background-color: #0077cc;
   display: flex;
   align-items: center;
@@ -42,6 +46,7 @@ body {
 .navbar .nav-links a:hover {
   color: #cce7ff;
 }
+
 
 /* Sobre Nosotros */.sobre-nosotros-container {
   padding: 40px;
