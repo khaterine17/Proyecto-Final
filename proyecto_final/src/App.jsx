@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import SobreNosotros from './SobreNosotros.jsx';
 import Contacto from './Contacto.jsx';
 import Venta from './Venta.jsx';
@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate();
+    const isAdmin = localStorage.getItem('adminToken') === 'admin-authenticated';
 
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
@@ -29,11 +29,6 @@ function App() {
         alert(`Buscando: ${searchQuery}`);
     };
 
-    // Función para cerrar sesión
-    const handleLogout = () => {
-        localStorage.removeItem('adminToken');
-        navigate('/Login');
-    };
 
     return (
         <div>
@@ -42,25 +37,19 @@ function App() {
                     🧊 Refrielectric RMV S.R.L
                 </div>
                 <div className="nav-links">
-                   <Link to="/Venta">Venta</Link>
-                   <Link to="/Contacto">Contacto</Link>
-                    <Link to="/SobreNosotros">Sobre Nosotros</Link>
-                    {localStorage.getItem('adminToken') ? (
+                    {/* Enlaces para admin autenticado */}
+                    {isAdmin ? (
                         <>
+                            <Link to="/Venta">Venta</Link>
                             <Link to="/Admins">Dashboard</Link>
-                            <button onClick={handleLogout} style={{
-                                background: 'none',
-                                border: 'none',
-                                color: 'inherit',
-                                cursor: 'pointer',
-                                font: 'inherit',
-                                padding: '0'
-                            }}>
-                                Cerrar Sesión
-                            </button>
                         </>
                     ) : (
-                        <Link to="/Login"> <FaUserAlt /> </Link>
+                        <>
+                            <Link to="/Venta">Venta</Link>
+                            <Link to="/Contacto">Contacto</Link>
+                            <Link to="/SobreNosotros">Sobre Nosotros</Link>
+                            <Link to="/Login"><FaUserAlt /></Link>
+                        </>
                     )}
 
                     <div className="search-bar">
@@ -99,7 +88,6 @@ function App() {
             </Routes>
             <Footer />
         </div>
-        
     );
 }
 

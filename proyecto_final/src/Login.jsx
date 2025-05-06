@@ -4,14 +4,12 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate();
 
-    // Estados para login
     const [loginData, setLoginData] = useState({
         username: '',
         password: ''
     });
     const [loginError, setLoginError] = useState('');
 
-    // Estados para registro
     const [registerData, setRegisterData] = useState({
         nombre: '',
         apellido: '',
@@ -28,7 +26,7 @@ const Login = () => {
     useEffect(() => {
         const adminToken = localStorage.getItem('adminToken');
         if (adminToken) {
-            navigate('/admin/dashboard');
+            navigate('/Admins');
         }
     }, [navigate]);
 
@@ -49,7 +47,7 @@ const Login = () => {
             // Guardar token de autenticación
             localStorage.setItem('adminToken', 'admin-authenticated');
             // Redirigir al dashboard
-            navigate('/admin/dashboard');
+            navigate('/Admins');
         } else {
             setLoginError('Usuario o contraseña incorrectos');
         }
