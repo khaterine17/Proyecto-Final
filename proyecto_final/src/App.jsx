@@ -81,6 +81,8 @@ function App() {
                 </div>
             </div>
 
+<div className='main-content'>   
+
             <Routes>
                 <Route path="/SobreNosotros" element={<SobreNosotros />} />
                 <Route path="/Contacto" element={<Contacto />} />
@@ -99,6 +101,7 @@ function App() {
             </Routes>
             <Footer />
         </div>
+</div>
         
     );
 }
