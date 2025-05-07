@@ -8,6 +8,7 @@ import Login from './Login.jsx';
 import AdminDashboard from './AdminDashboard.jsx';
 import './App.css';
 import Footer from './footer.jsx';
+import AgregarProductos from './AgregarProductos.jsx';
 import { FaUserAlt } from "react-icons/fa";
 
 // Componente para proteger rutas
@@ -45,6 +46,7 @@ function App() {
                    <Link to="/Venta">Venta</Link>
                    <Link to="/Contacto">Contacto</Link>
                     <Link to="/SobreNosotros">Sobre Nosotros</Link>
+                    <Link to="/AgregarProductos">Agregar Productos</Link>
                     {localStorage.getItem('adminToken') ? (
                         <>
                             <Link to="/Admins">Dashboard</Link>
@@ -60,7 +62,7 @@ function App() {
                             </button>
                         </>
                     ) : (
-                        <Link to="/Login"> <FaUserAlt /> </Link>
+                        <Link to="/productos"> <FaUserAlt /> </Link>
                     )}
 
                     <div className="search-bar">
@@ -89,6 +91,7 @@ function App() {
                 <Route path="/Venta" element={<Venta />} />
                 <Route path="/detalle/:id" element={<DetalleProducto />} />
                 <Route path="/Login" element={<Login />} />
+                <Route path="/AgregarProductos" element={<AgregarProductos />} />
                 <Route
                     path="/Admins"
                     element={
@@ -97,7 +100,10 @@ function App() {
                         </ProtectedRoute>
                     }
                 />
+                
+                    
                 <Route path="/" element={<Navigate to="/SobreNosotros" replace />} />
+               
             </Routes>
             <Footer />
         </div>
