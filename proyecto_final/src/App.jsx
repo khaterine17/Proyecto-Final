@@ -8,6 +8,7 @@ import Login from './Login.jsx';
 import AdminDashboard from './AdminDashboard.jsx';
 import './App.css';
 import Footer from './footer.jsx';
+import AgregarProductos from './AgregarProductos.jsx';
 import { FaUserAlt } from "react-icons/fa";
 
 // Componente para proteger rutas
@@ -38,19 +39,15 @@ function App() {
                     🧊 Refrielectric RMV S.R.L
                 </div>
                 <div className="nav-links">
-                    {/* Enlaces para admin autenticado */}
-                    {isAdmin ? (
+                    <Link to="/Venta">Venta</Link>
+                    <Link to="/Contacto">Contacto</Link>
+                    <Link to="/SobreNosotros">Sobre Nosotros</Link>
+                    {localStorage.getItem('adminToken') ? (
                         <>
-                            <Link to="/Venta">Venta</Link>
                             <Link to="/Admins">Dashboard</Link>
                         </>
                     ) : (
-                        <>
-                            <Link to="/Venta">Venta</Link>
-                            <Link to="/Contacto">Contacto</Link>
-                            <Link to="/SobreNosotros">Sobre Nosotros</Link>
-                            <Link to="/Login"><FaUserAlt /></Link>
-                        </>
+                        <Link to="/Login"> <FaUserAlt /> </Link>
                     )}
 
 
@@ -93,6 +90,7 @@ function App() {
                 <Footer />
             </div>
         </div>
+
     );
 }
 
