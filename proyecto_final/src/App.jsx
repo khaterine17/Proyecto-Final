@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
     const [searchQuery, setSearchQuery] = useState('');
-    const isAdmin = localStorage.getItem('adminToken') === 'admin-authenticated';
+    // const isAdmin = localStorage.getItem('adminToken') === 'admin-authenticated';
 
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
