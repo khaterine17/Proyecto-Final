@@ -53,6 +53,7 @@ function App() {
                         </>
                     )}
 
+
                     <div className="search-bar">
                         <form onSubmit={handleSearchSubmit}>
                             <input
@@ -91,8 +92,9 @@ function App() {
                 </Routes>
                 <Footer />
             </div>
-            );
+        </div>
+    );
 }
 
 
-            export default App;
+export default App;
