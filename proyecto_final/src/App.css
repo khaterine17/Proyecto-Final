@@ -1,7 +1,14 @@
 /* App.css */
 
+
+.main-content {
+  margin-top: 70px; /* Ajusta según la altura de tu navbar */
+}
+
+
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
 }
@@ -10,13 +17,13 @@ body {
 .navbar {
   position: fixed;       /* Hace que el navbar se quede fijo */
   top: 0;                /* Lo posiciona en la parte superior */
-  width: 100%;           /* Ocupa todo el ancho */
+  width: 97%;           /* Ocupa todo el ancho */
   z-index: 1000;     
   background-color: #0077cc;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px ;
   color: white;
 }
 

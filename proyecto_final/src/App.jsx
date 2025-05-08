@@ -30,6 +30,7 @@ function App() {
     };
 
 
+
     return (
         <div>
             <div className="navbar">
@@ -70,25 +71,28 @@ function App() {
                 </div>
             </div>
 
-            <Routes>
-                <Route path="/SobreNosotros" element={<SobreNosotros />} />
-                <Route path="/Contacto" element={<Contacto />} />
-                <Route path="/Venta" element={<Venta />} />
-                <Route path="/detalle/:id" element={<DetalleProducto />} />
-                <Route path="/Login" element={<Login />} />
-                <Route
-                    path="/Admins"
-                    element={
-                        <ProtectedRoute>
-                            <AdminDashboard />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route path="/" element={<Navigate to="/SobreNosotros" replace />} />
-            </Routes>
-            <Footer />
-        </div>
-    );
+            <div className='main-content'>
+
+                <Routes>
+                    <Route path="/SobreNosotros" element={<SobreNosotros />} />
+                    <Route path="/Contacto" element={<Contacto />} />
+                    <Route path="/Venta" element={<Venta />} />
+                    <Route path="/detalle/:id" element={<DetalleProducto />} />
+                    <Route path="/Login" element={<Login />} />
+                    <Route
+                        path="/Admins"
+                        element={
+                            <ProtectedRoute>
+                                <AdminDashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="/" element={<Navigate to="/SobreNosotros" replace />} />
+                </Routes>
+                <Footer />
+            </div>
+            );
 }
 
-export default App;
+
+            export default App;
